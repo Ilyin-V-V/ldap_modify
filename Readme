@@ -1,0 +1,44 @@
+- Appointment
+	Change the value of the ldap attribute given by a variable
+	filter_name by id or user name including from file.
+	Where the values ​​in the file are a list of either user id or user name
+
+ - Setting:
+        Add to cfg:
+                path = program path
+                ldap_host = ldap host
+                ldap_port = ldap port
+                ldap_user = ldap user
+                ldap_password = ldap password
+                ldap_dc = domain
+                ldap_ou = container
+                filter_number = unique attribute not changeable
+                filter_name = the attribute to be changed,
+                        now it's only DovecotAllowNets
+                ldapsearch, ldapmodify, grep = paths as appropriate
+
+ - Files:
+        cfg - settings
+        logger - logging module
+        ldap - ldap module
+        log.log - script log
+        modify.ldif - the ldif of the attribute
+        file - processed file, data into a column
+                login or number
+        core - main
+
+
+ - Job:
+        script --show -u user
+                getting attribute value by login
+        script --show -n id
+                getting attribute value by number
+        script --edit -u user
+                changing the attribute value by login
+                attribute validation
+        script --edit -n id
+                getting attribute value by number
+                attribute validation
+        script --all -u -n file
+                changing the value of an attribute in a loop from a file
+                by login or number

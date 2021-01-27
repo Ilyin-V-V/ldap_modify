@@ -1,0 +1,4 @@
+dn: uid=user,ou=People,dc=domain,dc=ru
+changetype: modify
+replace: DovecotAllowNets
+DovecotAllowNets:
